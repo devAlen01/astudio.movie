@@ -77,7 +77,11 @@ const MobileMenu: FC = () => {
             ))}
             {session?.user && (
               <li>
-                <Link className={scss.link} href={"/favorites"}>
+                <Link
+                  className={scss.link}
+                  href={"/favorites"}
+                  onClick={() => setIsOpen(false)}
+                >
                   Favorites
                 </Link>
               </li>
