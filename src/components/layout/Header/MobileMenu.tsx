@@ -75,6 +75,13 @@ const MobileMenu: FC = () => {
                 </Link>
               </li>
             ))}
+            {session?.user && (
+              <li>
+                <Link className={scss.link} href={"/favorites"}>
+                  Favorites
+                </Link>
+              </li>
+            )}
           </ul>
         </nav>
       </div>
