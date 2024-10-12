@@ -39,8 +39,8 @@ interface IContent {
 
 const ItemDetail: FC = () => {
   const { data: session } = useSession();
-  const router = useRouter();
   const { movieQuery, tvQuery } = useParams();
+
   const mediaType = movieQuery ? "movie" : "tv";
   const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<IUser[]>([]);
@@ -94,6 +94,7 @@ const ItemDetail: FC = () => {
   const { data: tvCredits } = useGetTvCreditsQuery(+tvQuery);
   const { data: movieTrailer } = useGetMovieVideosQuery(+movieQuery);
   const { data: tvShowTrailer } = useGetTVShowVideosQuery(+tvQuery);
+  const router = useRouter();
   const trailers = movieTrailer?.results
     ? movieTrailer.results
     : tvShowTrailer?.results;
@@ -113,18 +114,18 @@ const ItemDetail: FC = () => {
   // WRITER
   const job = ["Writer", "Director", "Producer"];
   const writerMovie = movieCredits?.crew?.filter((item: { job: string }) =>
-    job.includes(item.job)
+    job.includes(item?.job)
   );
   const writerTV = tvCredits?.crew?.filter((item: { job: string }) =>
-    job.includes(item.job)
+    job.includes(item?.job)
   );
   // GENRES
-  const genres = movie?.genres ? movie.genres : tv?.genres;
+  const genres = movie?.genres ? movie?.genres : tv?.genres;
 
-  const findContent = favorites.find(
+  const findContent = favorites?.find(
     (el) =>
-      (el.movieID === movie?.id && el?.userID === userId[0]?.id) ||
-      (el.movieID === tv?.id && el?.userID === userId[0]?.id)
+      (el?.movieID === movie?.id && el?.userID === userId[0]?.id) ||
+      (el?.movieID === tv?.id && el?.userID === userId[0]?.id)
   );
 
   useEffect(() => {
@@ -199,7 +200,7 @@ const ItemDetail: FC = () => {
                     <PlayIcon />
                   </div>
                   {/*  */}
-                  {session?.user && (
+                  {session?.user ? (
                     <div
                       style={{
                         color: findContent ? "red" : "",
@@ -222,6 +223,17 @@ const ItemDetail: FC = () => {
                       <IoHeartCircleOutline
                         style={{
                           color: loading ? "orange" : "",
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className={scss.heart_icon}
+                      onClick={() => router.push("/api/auth/signin")}
+                    >
+                      <IoHeartCircleOutline
+                        style={{
+                          color: "gray",
                         }}
                       />
                     </div>
