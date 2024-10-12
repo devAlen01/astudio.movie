@@ -17,12 +17,6 @@ const inter = Inter({
   weight: "400",
 });
 
-const geistSans = localFont({
-  src: "./fonts/Inter-VariableFont_opsz,wght.ttf",
-  variable: "--font-inter-sans",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
   title: "a-studio-movie",
   description: "2024",
@@ -37,9 +31,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${silkscreen.className} ${inter.className}`}
-      >
+      <body className={`${silkscreen.className} ${inter.className}`}>
         <SessionProvider session={session}>
           <LayoutClient>{children}</LayoutClient>
         </SessionProvider>
