@@ -68,7 +68,7 @@ const FavoritesList: FC = () => {
     return (
       <>
         <div className={scss.nothing}>
-          {!session?.user ? (
+          {session?.user ? (
             <>
               <h1>You haven't added anything yet</h1>
               <Link href={"/explore/movie"}>Go to movies page</Link>
@@ -90,7 +90,7 @@ const FavoritesList: FC = () => {
         {result.length ? (
           <div className={scss.content}>
             <div className={scss.favorite}>
-              <h2>Favorites</h2>
+              <h2>{session?.user?.name}'s favorites list</h2>
             </div>
             <div className={scss.list}>
               {result?.map((item) => (
