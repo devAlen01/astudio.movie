@@ -67,7 +67,7 @@ const Header: FC = () => {
           <div className={scss.left}>
             <div className={scss.logo}>
               <Link href="/">
-                <h1>A&#xB7;Studio</h1>
+                <h1>A&#xB7;STUDIO</h1>
               </Link>
             </div>
           </div>
