@@ -1,0 +1,28 @@
+#play {
+  cursor: pointer;
+}
+
+#play #triangle {
+  fill: rgba(22, 22, 22, 0);
+  transition: 200ms;
+  transform-origin: 50% 50%;
+}
+
+#play:hover #triangle {
+  fill: currentColor;
+  transform-origin: 50% 50%;
+}
+
+#play #lineOne,
+#play #lineTwo {
+  transform-origin: 50% 50%;
+  transition: 1s;
+}
+
+#play:hover #lineOne {
+  transform: rotate(260deg);
+}
+
+#play:hover #lineTwo {
+  transform: rotate(-450deg);
+}

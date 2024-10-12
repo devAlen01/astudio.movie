@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+  scrollbar-width: none;
+}
+
+body {
+  font-family: "Inter", system-ui;
+  background-color: #04152d;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+}
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 0 20px;
+}

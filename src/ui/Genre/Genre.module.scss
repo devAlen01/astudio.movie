@@ -1,0 +1,16 @@
+.Genre {
+  font-size: clamp(6px, 2vw, 11px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 3px;
+    border-radius: 5px;
+    background-color: rgb(25, 187, 7);
+    font-weight: 500;
+  }
+}

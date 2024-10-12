@@ -1,0 +1,27 @@
+.YoutubeVideoPlayer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  inset: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.563);
+  backdrop-filter: blur(4px);
+  z-index: 22;
+  gap: 7px;
+  .close {
+    cursor: pointer;
+    svg {
+      font-size: clamp(14px, 7vw, 44px);
+    }
+  }
+
+  .video {
+    width: clamp(345px, 55vw, 800px);
+    height: clamp(230px, 33vw, 450px);
+    iframe {
+      border-radius: 10px;
+    }
+  }
+}

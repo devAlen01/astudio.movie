@@ -1,0 +1,46 @@
+.YoutubeTrailerSection {
+  margin-top: 40px;
+  h3 {
+    font-weight: 500;
+    font-size: clamp(15px, 3vw, 25px);
+  }
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    scrollbar-width: none;
+    gap: 0 16px;
+    overflow-x: scroll;
+    .trailer {
+      position: relative;
+      height: 235px;
+      width: 300px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      gap: 10px;
+
+      img {
+        width: 300px;
+        border-radius: 8px;
+      }
+      p {
+        width: 97%;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+    .play_icon {
+      position: absolute;
+      top: 50px;
+      transition: 0.2s;
+      width: clamp(44px, 14vw, 78px);
+      &:hover {
+        transition: 0.2s;
+        color: #04285a;
+      }
+    }
+  }
+}

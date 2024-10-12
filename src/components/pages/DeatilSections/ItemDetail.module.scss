@@ -1,0 +1,194 @@
+.DeatilPage {
+  width: 80%;
+  margin: 0 auto;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+}
+
+.ItemDetail {
+  padding-top: 100px;
+  ::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.3;
+
+    background: linear-gradient(
+      180deg,
+      rgba(4, 21, 45, 0.07) 0,
+      rgba(4, 21, 45, 0.245) 82%,
+      #04152d 99%
+    );
+  }
+  .bgImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    .line {
+      width: 100%;
+      padding: 0.7px 0;
+      margin: 6px 0;
+      background-color: rgba(128, 128, 128, 0.316);
+    }
+
+    .poster {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 350px;
+        border-radius: 6px;
+        @media screen and (max-width: 800px) {
+          width: 100%;
+        }
+      }
+    }
+    .content_info {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      height: 530px;
+      width: 100%;
+      @media screen and (max-width: 800px) {
+        margin-top: auto;
+      }
+
+      gap: 12px;
+      .title {
+        h3 {
+          font-size: clamp(25px, 3vw, 36px);
+          font-weight: 500;
+        }
+        .tagline {
+          font-size: clamp(14px, 2vw, 19px);
+          color: gray;
+          font-weight: 500;
+        }
+      }
+
+      .genres {
+        font-size: clamp(8px, 1vw, 10px);
+        display: flex;
+        gap: 5px;
+        .genre {
+          padding: 3px 4px;
+          border-radius: 8px;
+          background-color: rgb(25, 187, 7);
+          font-weight: 600;
+        }
+      }
+      .rating_play {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        .rating {
+          width: clamp(46px, 14vw, 80px);
+          height: auto;
+        }
+        .play_icon {
+          transition: 0.2s;
+          width: clamp(44px, 14vw, 78px);
+          height: auto;
+
+          &:hover {
+            transition: 0.2s;
+            color: rgb(25, 187, 7);
+          }
+        }
+        .heart_icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          font-size: clamp(55px, 17vw, 88px);
+        }
+      }
+      .overview {
+        font-size: clamp(19px, 3vw, 28px);
+        font-weight: 500;
+      }
+      .desc {
+        font-size: clamp(14px, 2vw, 16px);
+        font-weight: 400;
+        line-height: clamp(18px, 2vw, 22px);
+      }
+      .status_date_runtime {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(10px, 1vw, 40px);
+
+        p {
+          font-size: clamp(11px, 2vw, 16px);
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          span {
+            color: gray;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .director {
+        p {
+          font-size: clamp(11px, 2vw, 16px);
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          span {
+            color: gray;
+            font-weight: normal;
+          }
+        }
+      }
+      .writer {
+        p {
+          font-size: clamp(11px, 2vw, 16px);
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          span {
+            color: gray;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+}

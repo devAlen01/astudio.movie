@@ -1,0 +1,40 @@
+.TVShowList {
+  padding-top: 100px;
+  @media screen and (max-width: 900px) {
+    padding-top: 70px;
+  }
+  .content {
+    .explore {
+      h2 {
+        padding: 10px 0;
+        font-size: 25px;
+        font-weight: 400;
+      }
+    }
+    .sort {
+      width: 100%;
+      color: green;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+      .select {
+        width: 100%;
+      }
+    }
+    .list {
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      .tvshow {
+        width: clamp(170px, 18vw, 240px);
+        height: clamp(300px, 43vw, 440px);
+      }
+    }
+  }
+}

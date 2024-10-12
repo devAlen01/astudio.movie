@@ -1,0 +1,40 @@
+.Footer {
+  padding: 20px 0;
+  .line {
+    max-width: 100%;
+    border: 0.6px solid rgb(53, 52, 52);
+  }
+  .content {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .media_icons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(20px, 5vw, 35px);
+      a {
+        font-size: clamp(20px, 4vw, 40px);
+        color: white;
+      }
+    }
+    .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      p {
+        font-size: clamp(6px, 2vw, 20px);
+      }
+      span {
+        padding: 0 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: red;
+        font-size: clamp(9px, 2vw, 22px);
+      }
+    }
+  }
+}

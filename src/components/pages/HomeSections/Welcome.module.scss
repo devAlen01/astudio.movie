@@ -1,0 +1,127 @@
+// .Welcome {
+//   position: relative;
+//   width: 100%;
+//   height: 700px;
+//   // background: url("../../../assets/wall.jpg") no-repeat center/cover;
+//   // opacity: 0.5;
+//   ::after {
+//     content: "";
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     height: 320px;
+//     background: linear-gradient(
+//       180deg,
+//       rgba(4, 21, 45, 0),
+//       rgb(4, 21, 45) 79.17%
+//     );
+//   }
+// }
+
+// ? Alen
+
+.Welcome {
+  ::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55%;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 21, 45, 0) 0,
+      rgba(4, 21, 45, 0.232) 82%,
+      #04152d 99%
+    );
+  }
+
+  .content {
+    opacity: 1;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h1 {
+      width: clamp(300px, 90vw, 1000px);
+      height: clamp(120px, 30vw, 220px);
+      color: white;
+      font-size: clamp(30px, 8vw, 90px);
+      font-weight: 700;
+      line-height: clamp(5px, 12vw, 90px);
+      text-align: center;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0, 255, 204, 0.8),
+        0 0 10px rgba(0, 255, 204, 0.6),
+        /* More glow */ 0 0 15px rgba(0, 255, 204, 0.4),
+        /* Even more glow */ 0 0 20px rgba(24, 67, 186, 0.8),
+        /* Shadow using first gradient color */ 0 0 25px rgba(43, 215, 77, 0.8);
+    }
+    h4 {
+      color: rgb(255, 255, 255);
+      font-size: clamp(16px, 3vw, 24px);
+      font-weight: 500;
+      text-align: center;
+    }
+    .search_movie {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 40px;
+      opacity: 0.8;
+
+      input {
+        padding: 5px 30px;
+        color: black;
+        font-size: clamp(14px, 2vw, 20px);
+        width: clamp(220px, 60vw, 850px);
+        height: clamp(45px, 6vw, 60px);
+        left: 0;
+        border: none;
+        outline: none;
+        top: 264px;
+        border-radius: 30px 0px 0px 30px;
+        background: rgb(255, 255, 255);
+      }
+      button {
+        cursor: pointer;
+        width: clamp(80px, 15vw, 150px);
+        border: none;
+        color: white;
+        font-size: clamp(14px, 2vw, 20px);
+        margin-left: -5px;
+        height: clamp(45px, 6vw, 60px);
+        left: 850px;
+        top: 265px;
+        border-radius: 0px 30px 30px 0px;
+        background: linear-gradient(
+          -30.65deg,
+          rgb(24, 67, 186),
+          rgb(43, 215, 77)
+        );
+      }
+    }
+  }
+}
+
+.random_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.6;
+
+  .bg_image {
+    object-fit: cover;
+    object-position: center;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
