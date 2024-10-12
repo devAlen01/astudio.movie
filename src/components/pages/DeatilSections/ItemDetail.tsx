@@ -2,7 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import scss from "./ItemDetail.module.scss";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import PreLoader from "@/ui/PreLoader/PreLoader";
 import {
   useGetMovieCreditsQuery,
@@ -39,6 +39,7 @@ interface IContent {
 
 const ItemDetail: FC = () => {
   const { data: session } = useSession();
+  const router = useRouter();
   const { movieQuery, tvQuery } = useParams();
   const mediaType = movieQuery ? "movie" : "tv";
   const [loading, setLoading] = useState<boolean>(false);
@@ -198,7 +199,7 @@ const ItemDetail: FC = () => {
                     <PlayIcon />
                   </div>
                   {/*  */}
-                  {session?.user && (
+                  {session?.user ? (
                     <div
                       style={{
                         color: findContent ? "red" : "",
@@ -223,6 +224,16 @@ const ItemDetail: FC = () => {
                           color: loading ? "orange" : "",
                         }}
                       />
+                    </div>
+                  ) : (
+                    <div
+                      style={{
+                        color: findContent ? "red" : "",
+                      }}
+                      className={scss.heart_icon}
+                      onClick={() => router.push("/api/auth/signin")}
+                    >
+                      <IoHeartCircleOutline />
                     </div>
                   )}
                   {/*  */}
