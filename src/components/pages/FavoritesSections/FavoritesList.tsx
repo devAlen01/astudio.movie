@@ -48,9 +48,9 @@ const FavoritesList: FC = () => {
       setError(error.message);
     }
   };
-  const userId =
-    user?.filter((user) => user?.email === session?.user?.email) || [];
-  const result = data?.filter((el) => el?.userID === userId[0]?.id) || [];
+  const userId = user?.find((u) => u?.email === session?.user?.email);
+  const result = data?.filter((el) => el?.userID === userId?.id) || [];
+
   useEffect(() => {
     getUser();
     getFavoritesList();
@@ -99,7 +99,7 @@ const FavoritesList: FC = () => {
                   key={item?.id}
                   className={scss.movie}
                   onClick={() =>
-                    router.push(`/${item.mediaType}/${item.movieID}`)
+                    router.push(`/${item?.mediaType}/${item?.movieID}`)
                   }
                 >
                   <ItemCard
