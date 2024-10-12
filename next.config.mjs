@@ -8,17 +8,35 @@
 
 // export default nextConfig;
 
+// ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// /** @type {import('next').NextConfig} */
+// const nextConfig = {
+//   images: {
+//     domains: ["image.tmdb.org"],
+//     unoptimized: true,
+//   },
+//   typescript: {
+//     ignoreBuildErrors: true,
+//   },
+//   eslint: {
+//     ignoreDuringBuilds: true,
+//   },
+// };
+
+// export default nextConfig;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["image.tmdb.org"],
-    unoptimized: true,
+    domains: ["image.tmdb.org"], // Убедитесь, что это правильный домен
+    unoptimized: true, // Используйте только если необходимо отключить оптимизацию изображений
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false, // Постарайтесь не игнорировать ошибки
   },
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: false, // Постарайтесь не игнорировать ошибки
   },
 };
 

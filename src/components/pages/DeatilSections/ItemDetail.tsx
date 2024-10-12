@@ -1,6 +1,7 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import scss from "./ItemDetail.module.scss";
+
 import { useParams } from "next/navigation";
 import PreLoader from "@/ui/PreLoader/PreLoader";
 import {
