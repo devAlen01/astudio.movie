@@ -199,7 +199,7 @@ const ItemDetail: FC = () => {
                     <PlayIcon />
                   </div>
                   {/*  */}
-                  {session?.user ? (
+                  {session?.user && (
                     <div
                       style={{
                         color: findContent ? "red" : "",
@@ -224,16 +224,6 @@ const ItemDetail: FC = () => {
                           color: loading ? "orange" : "",
                         }}
                       />
-                    </div>
-                  ) : (
-                    <div
-                      style={{
-                        color: findContent ? "red" : "",
-                      }}
-                      className={scss.heart_icon}
-                      onClick={() => router.push("/api/auth/signin")}
-                    >
-                      <IoHeartCircleOutline />
                     </div>
                   )}
                   {/*  */}
