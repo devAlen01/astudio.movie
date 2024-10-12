@@ -85,8 +85,10 @@ const ItemDetail: FC = () => {
     }
   };
 
-  const { data: movie } = useGetOneMovieQuery(+movieQuery);
-  const { data: tv } = useGetOneTvShowQuery(+tvQuery);
+  const { data: movie, isLoading: isMovieLoading } = useGetOneMovieQuery(
+    +movieQuery
+  );
+  const { data: tv, isLoading: isTvLoading } = useGetOneTvShowQuery(+tvQuery);
   const { data: movieCredits } = useGetMovieCreditsQuery(+movieQuery);
   const { data: tvCredits } = useGetTvCreditsQuery(+tvQuery);
   const { data: movieTrailer } = useGetMovieVideosQuery(+movieQuery);
@@ -128,6 +130,10 @@ const ItemDetail: FC = () => {
     getMe();
     getFavoritesList();
   }, []);
+  if (isMovieLoading || isTvLoading) {
+    return <PreLoader />;
+  }
+
   return (
     <>
       {movie || tv ? (
