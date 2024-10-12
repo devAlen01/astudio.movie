@@ -7,6 +7,7 @@ import ItemCard from "@/ui/ItemCard/ItemCard";
 import { useRouter } from "next/navigation";
 import PreLoader from "@/ui/PreLoader/PreLoader";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 interface IContent {
   name: string;
   poster: string;
@@ -62,6 +63,26 @@ const FavoritesList: FC = () => {
   }, [data]);
 
   if (isLoading) return <PreLoader />;
+
+  if (result.length === 0) {
+    return (
+      <>
+        <div className={scss.nothing}>
+          {!session?.user ? (
+            <>
+              <h1>You haven't added anything yet</h1>
+              <Link href={"/explore/movie"}>Go to movies page</Link>
+              <Link href={"/explore/tv"}>Go to TV show page</Link>
+            </>
+          ) : (
+            <button onClick={() => router.push("/api/auth/signin")}>
+              Sign In
+            </button>
+          )}
+        </div>
+      </>
+    );
+  }
 
   return (
     <section className={scss.FavoritesList}>
