@@ -40,12 +40,12 @@ interface IContent {
 const ItemDetail: FC = () => {
   const { data: session } = useSession();
   const { movieQuery, tvQuery } = useParams();
-
   const mediaType = movieQuery ? "movie" : "tv";
   const [loading, setLoading] = useState<boolean>(false);
   const [user, setUser] = useState<IUser[]>([]);
   const [favorites, setFavorites] = useState<IContent[]>([]);
-  const userId = user?.filter((user) => user?.email === session?.user?.email);
+  const userId =
+    user?.filter((user) => user?.email === session?.user?.email) || [];
   const getMe = async () => {
     try {
       const { data } = await axios.get("/api/me");
@@ -125,7 +125,8 @@ const ItemDetail: FC = () => {
   const findContent = favorites?.find(
     (el) =>
       (el?.movieID === movie?.id && el?.userID === userId[0]?.id) ||
-      (el?.movieID === tv?.id && el?.userID === userId[0]?.id)
+      (el?.movieID === tv?.id && el?.userID === userId[0]?.id) ||
+      ""
   );
 
   useEffect(() => {

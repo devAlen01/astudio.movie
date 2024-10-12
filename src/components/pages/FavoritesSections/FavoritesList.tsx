@@ -48,14 +48,15 @@ const FavoritesList: FC = () => {
       setError(error.message);
     }
   };
-  const userId = user?.filter((user) => user?.email === session?.user?.email);
-  const result = data?.filter((el) => el?.userID === userId[0]?.id);
+  const userId =
+    user?.filter((user) => user?.email === session?.user?.email) || [];
+  const result = data?.filter((el) => el?.userID === userId[0]?.id) || [];
   useEffect(() => {
     getUser();
     getFavoritesList();
   }, []);
   useEffect(() => {
-    if (data.length > 0) {
+    if (data?.length > 0) {
       setTimeout(() => {
         setIsLoading(false);
       }, 1500);
@@ -87,7 +88,7 @@ const FavoritesList: FC = () => {
   return (
     <section className={scss.FavoritesList}>
       <div className="container">
-        {result.length ? (
+        {result?.length ? (
           <div className={scss.content}>
             <div className={scss.favorite}>
               <h2>{session?.user?.name}'s favorites list</h2>
@@ -95,17 +96,17 @@ const FavoritesList: FC = () => {
             <div className={scss.list}>
               {result?.map((item) => (
                 <div
-                  key={item.id}
+                  key={item?.id}
                   className={scss.movie}
                   onClick={() =>
                     router.push(`/${item.mediaType}/${item.movieID}`)
                   }
                 >
                   <ItemCard
-                    poster_path={item.poster}
-                    name={item.name}
-                    release_date={item.releaseDate}
-                    vote_average={item.voteAverage}
+                    poster_path={item?.poster}
+                    name={item?.name}
+                    release_date={item?.releaseDate}
+                    vote_average={item?.voteAverage}
                   />
                 </div>
               ))}
